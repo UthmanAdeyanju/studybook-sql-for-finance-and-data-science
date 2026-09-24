@@ -98,13 +98,18 @@ SELECT DATE '2025-08-26' - DATE '2025-08-01' AS days_diff_3;
 
 -- AGE() returns an INTERVAL (years mons days) between two dates/timestamps
 SELECT AGE(DATE '2020-05-31', DATE '2020-06-30') AS age_interval_1;
-SELECT AGE(DATE '2025-10-25', DATE '1977-10-26') AS age_interval_2;
+SELECT AGE(DATE '2026-09-24', DATE '1977-10-26') AS age_interval_2;
 
 -- Extract parts from AGE() (use singular fields: year, month, day)
 SELECT
     EXTRACT(YEAR  FROM AGE(DATE '2025-10-25', DATE '1977-10-26')) AS years_part,
     EXTRACT(MONTH FROM AGE(DATE '2025-10-25', DATE '1977-10-26')) AS months_part,
     EXTRACT(DAY   FROM AGE(DATE '2025-10-25', DATE '1977-10-26')) AS days_part;
+
+
+SELECT DATE_PART('MONTH',AGE('2020-06-30','2020-01-01')) AS MONTHS;
+SELECT DATE_PART('YEAR',AGE('2026-06-30','2020-01-01')) AS MONTHS;
+
 
 -- Add an INTERVAL to a DATE
 SELECT DATE '1977-10-26' + INTERVAL '48 years' AS plus_48_years;
