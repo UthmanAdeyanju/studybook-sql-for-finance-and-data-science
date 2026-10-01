@@ -138,6 +138,15 @@ SELECT TIME '05:00' + (INTERVAL '1 hour' * 2) AS time_plus_2h;      -- 07:00
 --      * Cast to NUMERIC/DECIMAL in pct calcs to avoid integer division.
 -- ============================================================================
 
+
+-- Simple Trends 
+select sales_month, sales, kind_of_business
+from retail_sales
+where kind_of_business = 'Retail and food services sales, total';
+
+
+
+
 -- Peek sample rows
 SELECT *
 FROM retail_sales
